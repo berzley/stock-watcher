@@ -1,16 +1,38 @@
 <div class="stock-quote-card">
 
-    <div class="card-left">
-<!--        TODO - add the content shown in the mockup -->
+    <div class="card-left <%- this.increaseDecrease(change) %>">
+        <div class="stock-graph">
+            <div class="position level-<%- this.currentValuePercent(open, low, high) %>"></div>
+            <div class="labels">
+                <span class="high"><%- this.formatMoney(high) %></span>
+                <span class="low"><%- this.formatMoney(low) %></span>
+            </div>
+        </div>
     </div>
     <div class="card-right">
-        <h3><%- name %></h3>
-        <p class="stock-symbol-label"><%- symbol %></p>
-        <p class="stock-price"><%- this.formatMoney(price) %> <span><%- this.formatMoney(change) %> (<%- changePercent %>)</span></p>
-        <p class="stock-recent-performance">
-            <span>OPEN <%- this.formatMoney(open) %></span>
-            <span>HIGH <%- this.formatMoney(high) %></span>
-            <span>LOW <%- this.formatMoney(low) %></span>
-        </p>
+        <div class="stock-row stock-labels">
+            <h3 class="stock-name"><%- name %></h3>
+            <div class="stock-symbol-label"><%- symbol %></div>
+        </div>
+
+        <div class="stock-row stock-price">
+            <span><%- this.formatMoney(price) %></span>
+            <span class="change <%- this.increaseDecrease(change) %>">
+                <span class="change-arrow"></span> <%- this.formatMoney(change) %> <span class="percent">(<%- changePercent %>)</span>
+            </span>
+        </div>
+
+        <div class="stock-row stock-recent-performance">
+                <span>
+                    <span class="label">OPEN</span> <span class="value"><%- this.formatMoney(open) %></span>
+                </span>
+                <span>
+                    <span class="label">HIGH</span> <span class="value"><%- this.formatMoney(high) %></span>
+                </span>
+                <span>
+                    <span class="label">LOW</span> <span class="value"><%- this.formatMoney(low) %></span>
+                </span>
+            </div>
+        </div>
     </div>
 </div>

@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mainView.on("stockSearch", function(e) {
         const searchSymbol = e.symbol;
-        alert(searchSymbol);
-        // TODO - replace the alert with a call to ./StockQuote/StockQuoteService.getGlobalQuoteBySymbol and complete
-        //  the callback function by adding valid results to the stockQuoteCollection
+
+        getGlobalQuoteBySymbol(searchSymbol)
+            .then(quote => stockQuoteCollection.add(createFromGlobalQuote(quote)))
     })
 })

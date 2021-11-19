@@ -17,7 +17,6 @@ export const StockQuoteView = Marionette.View.extend({
      * @returns {*}
      */
     formatMoney: function(value) {
-        // TODO - complete the format money method, don't just return the input.
-        return value
+        return Math.round(parseFloat(value)*100)/100
     }
 })
